@@ -1,4 +1,4 @@
-import Reacr from "react";
+import React from "react";
 import "./sidenavmenubar.css";
 import PublicIcon from '@mui/icons-material/Public';
 import {NavLink} from "react-router-dom";

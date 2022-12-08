@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import axios from "axios";
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import "./pages.css";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -35,34 +35,36 @@ function Question()
       
   },[]);
   return(
-    <div className="content">
-      {question.map((row)=>{
-       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <ListItem alignItems="flex-start">
+    // <div className="content">
+    //   {question.map((row)=>{
+    //    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    //   <ListItem alignItems="flex-start">
         
-        <ListItemText
-          primary={row.name}
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-               {question.email}
-              </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
+    //     <ListItemText
+    //       primary={row.name}
+    //       secondary={
+    //         <React.Fragment>
+    //           <Typography
+    //             sx={{ display: 'inline' }}
+    //             component="span"
+    //             variant="body2"
+    //             color="text.primary"
+    //           >
+    //            {question.email}
+    //           </Typography>
+    //           {" — I'll be in your neighborhood doing errands this…"}
+    //         </React.Fragment>
+    //       }
+    //     />
+    //   </ListItem>
+    //   <Divider variant="inset" component="li" />
      
-    </List>
-    })}
+    // </List>
+    // })}
       
-    </div>
+    // </div>
+    <>
+    <h1>qus</h1></>
 
   );
 }

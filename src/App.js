@@ -1,73 +1,34 @@
-import React from "react";
-import Home from "./pages/home";
-import Companies from "./pages/companies";
+import './App.css';
+import Signin from "./register/signin";
+import Signup from "./register/signup";
 import Question from "./pages/question";
-import Tags from "./pages/tags";
-import Users from "./pages/users";
-import Signin from "./pages/signin";
-import Sidenavmenubar from "./components/sidenavmenubar";
+import Company from "./pages/company";
+import User from "./pages/user";
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import StyleIcon from '@mui/icons-material/Style';
-import TextField from '@mui/material/TextField';
+import VerticalTabs from "./pages/tab";
+import EnhancedTable from "./pages/table";
+import { Buffer } from 'buffer';
+global.Buffer = Buffer;
 
-function App()
-{
-    return(
-        <div>
-            <div className="top"></div>
-            <div className="header">
-            <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <StyleIcon />
-          </IconButton>
-          
-          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           StackOverFlow Clone
-          </Typography>
-          <Button color="inherit">About</Button>&nbsp;
-          <Button color="inherit">Product</Button>&nbsp;
-          <Button color="inherit">For Teams</Button>&nbsp;
-          <TextField id="outlined-basic" label="Search" variant="outlined" />
-          <Button color="inherit" >Signin</Button>&nbsp;
-          <Button color="inherit" >Signout</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-        </div>
-        <div className="body">
-        <Router>
-            <Sidenavmenubar/>
+function App() {
+   return (
+    <div className="App">
+      <div className="body">
+        <Router>           
             <Routes>
-            <Route path="/"  element={<Home/>}/>
-                <Route path="/companies" element={<Companies/>}/>
-                <Route path="/question" element={<Question/>}/>
-                <Route path="/tags" element={<Tags/>}/>
-                <Route path="/users" element={<Users/>}/>
-                <Route path="/signin" element={<Signin/>}/>
+            <Route path="/table"  element={<EnhancedTable/>}/>
+            <Route path="/"  element={<Signup/>}/>
+            <Route path="/signin" element={<Signin/>}/>
+            <Route path="/tab" element={<VerticalTabs/>}/>
+            <Route path="/signup" element={<Signup/>}/>
+            <Route path="/question" element={<Question/>}/>
+            <Route path="/user" element={<User/>}/>
+            <Route path="/company" element={<Company/>}/>
             </Routes>
            </Router>
         </div>
-        {/* <div className="Footer">
-         
-        </div> */}
-           
-        </div>
-    );
+    </div>
+  );
 }
 
-export default App
+export default App;
