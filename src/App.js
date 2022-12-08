@@ -2,11 +2,11 @@ import './App.css';
 import Signin from "./register/signin";
 import Signup from "./register/signup";
 import Question from "./pages/question";
-import Company from "./pages/company";
-import User from "./pages/user";
+import Users from "./pages/users";
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import VerticalTabs from "./pages/tab";
-import EnhancedTable from "./pages/table";
+import Home from "./pages/home";
+import Tags from "./pages/tags";
 import { Buffer } from 'buffer';
 global.Buffer = Buffer;
 
@@ -16,14 +16,16 @@ function App() {
       <div className="body">
         <Router>           
             <Routes>
-            <Route path="/table"  element={<EnhancedTable/>}/>
             <Route path="/"  element={<Signup/>}/>
             <Route path="/signin" element={<Signin/>}/>
-            <Route path="/tab" element={<VerticalTabs/>}/>
             <Route path="/signup" element={<Signup/>}/>
+            <Route path="/tab" element={<VerticalTabs/>}/>            
             <Route path="/question" element={<Question/>}/>
-            <Route path="/user" element={<User/>}/>
-            <Route path="/company" element={<Company/>}/>
+            <Route path="/users" element={<Users/>}/>
+            <Route path="/home" element={<Home/>}/>
+            
+            <Route path="/tags" element={<Tags/>}/>
+
             </Routes>
            </Router>
         </div>

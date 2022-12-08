@@ -44,18 +44,18 @@ function Signup(){
 
     // signup axios call
 
-    const response= await axios.post("http://localhost:3001/register/signup",
+    // const response= await axios.post("http://localhost:3001/register/signup",
        
-        {
-         fristname: formdata.fristname,
-         lastname: formdata.lastname,
-         email: formdata.email,
-         password: formdata.password,
-         confirmpassword: formdata.confirmpassword,
-         gender: formdata.gender,
-         mobilenumber: formdata.mobilenumber,
-        });
-        setUserStateData([...userStateData,response.data]);
+    //     {
+    //      fristname: formdata.fristname,
+    //      lastname: formdata.lastname,
+    //      email: formdata.email,
+    //      password: formdata.password,
+    //      confirmpassword: formdata.confirmpassword,
+    //      gender: formdata.gender,
+    //      mobilenumber: formdata.mobilenumber,
+    //     });
+    //     setUserStateData([...userStateData,response.data]);
         navigate("/tab");
         resetForm();
        
@@ -68,7 +68,7 @@ const handlesubmit1=()=>{
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={0}>
         <Grid item xs={4}>
-          <Item  padding="100px"> <img src={zenlogo}/></Item>
+          <Item  padding="100px"> </Item>
         </Grid>
         <Grid item xs={8}>
           <Item> 

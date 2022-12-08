@@ -1,25 +1,10 @@
 import React from "react";
+import Button from "@mui/material/Button";
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Application from "./application";
-import Capestone from "./capestone";
-import Certificate from "./certificate";
-import Class from "./class";
-import Dashboard from "./dashboard";
-import Interviewtask from "./interviewtask";
-import Leadership from "./leadership";
-import Leaveapplication from "./leaveapplication";
-import Mockinterview from "./mockinterview";
-import Query from "./query";
-import Requirement from "./requirement";
-import Syllabus from "./syllabus";
-import Task from "./task";
-import Testimonial from "./testimonial";
-import Webcode from "./webcode";
 import Signin from "../register/signin";
-import zenlogo from "../images/zenlogo.png";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -33,7 +18,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Signup from "../register/signup"
 import {useNavigate} from "react-router-dom";
-import Profile from "./profile";
+import Home from "./home";
+import Question from "./question";
+import  Tags from "./tags";
+import Users from "./users";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -102,7 +91,6 @@ export default function VerticalTabs() {
 
 <AppBar position="static" style={{background:"rgb(129, 43, 129)"}}>
   <Toolbar>
-  <img style={{width: 50,height: 50, alignContent:"center"}} src={zenlogo}/>
 
   <Button variant="text">About</Button>&nbsp;
   <Button variant="text">Product</Button>&nbsp;
@@ -161,8 +149,8 @@ export default function VerticalTabs() {
         <Tab label="home" {...a11yProps(0)} />
         <Tab label="Question" {...a11yProps(1)} />
         <Tab label="Tags" {...a11yProps(2)} />
-        <Tab label="User" {...a11yProps(3)} />
-        <Tab label="Companies" {...a11yProps(4)} />
+        <Tab label="Users" {...a11yProps(3)} />
+       
         </Tabs>
      
       <TabPanel value={value} index={0}>
@@ -175,11 +163,9 @@ export default function VerticalTabs() {
       <Tags/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-      <User/>
+      <Users/>
       </TabPanel>
-      <TabPanel value={value} index={4}>
-      <Companies/>
-      </TabPanel>
+      
       </Box>
     </div>
   );

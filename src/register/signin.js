@@ -13,12 +13,12 @@ function Signin(){
     });
     const handleSubmit=async(e)=>{
         e.preventDefault();
-        const response=await axios.post("http://localhost:3001/register/signin",{...formdata});
-        if(response.data){
-            localStorage.setItem("token",response.data);
+        // const response=await axios.post("http://localhost:3001/register/signin",{...formdata});
+        // if(response.data){
+        //     localStorage.setItem("token",response.data);
               navigate("/tab");
-        }
-        console.log(response);
+        // }
+        // console.log(response);
       
 
     };
