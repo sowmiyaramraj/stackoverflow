@@ -45,17 +45,17 @@ function Signup(){
 
     // signup axios call
 
-    // const response= await axios.post("http://localhost:3001/register/signup",
+    const response= await axios.post("http://localhost:3001/register/signup",
        
-    //     {
-    //      fristname: formdata.fristname,
-    //      lastname: formdata.lastname,
-    //      email: formdata.email,
-    //      password: formdata.password,
-    //      confirmpassword: formdata.confirmpassword,
-    //     tags:formdata.tags,
-    //     });
-    //     setUserStateData([...userStateData,response.data]);
+        {
+         fristname: formdata.fristname,
+         lastname: formdata.lastname,
+         email: formdata.email,
+         password: formdata.password,
+         confirmpassword: formdata.confirmpassword,
+        tags:formdata.tags,
+        });
+        setUserStateData([...userStateData,response.data]);
         navigate("/tab");
         resetForm();
        
