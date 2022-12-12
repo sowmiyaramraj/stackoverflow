@@ -94,7 +94,7 @@ export default function VerticalTabs() {
 
   <Button variant="text">About</Button>&nbsp;
   <Button variant="text">Product</Button>&nbsp;
-  <Button variant="text">Text</Button>&nbsp;
+  
     {auth && (
       <div>
         <IconButton
