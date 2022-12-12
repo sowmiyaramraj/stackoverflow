@@ -9,6 +9,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import jwt from "jsonwebtoken";
 
 const bull = (
   <Box
@@ -31,57 +32,45 @@ const Item = styled(Paper)(({ theme }) => ({
 function Users()
 {
 
-  const [userdata,setUserdata]= useState([
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-  ]);
+  const [userdata,setUserdata]= useState([]);
 
     
-//   useEffect(()=>{
-//    async function getData()
-//    {
-//     const decodedtoken=jwt.decode(localStorage.getItem("token"));
-//     if(decodedtoken.exp * 1000 < Date.now())
-//     {
-//       navigate("/signin");
+  useEffect(()=>{
+   async function getData()
+   {
+    const decodedtoken=jwt.decode(localStorage.getItem("token"));
+    if(decodedtoken.exp * 1000 < Date.now())
+    {
+      navigate("/signin");
 
-//     }
-// else{
-//        const response= await axios.get("http://localhost:3001/user/get",{
-//          headers:{
-//            accesstoken : localStorage.getItem("token"),
-//          },
-//        });
-//        setUserdata(response.data);    
-//    }
-//  }
-//    getData();
-// },[]);
+    }
+else{
+       const response= await axios.get("http://localhost:3001/user/get",{
+         headers:{
+           accesstoken : localStorage.getItem("token"),
+         },
+       });
+       setUserdata(response.data);    
+   }
+ }
+   getData();
+},[]);
   
   return(
     <div >
       <h1>Users</h1>
     <div>
-    <TextField id="filled-basic" label="Filled" variant="filled" />      <Button variant="outlined">Reputation</Button>
-      <Button variant="outlined">New user</Button>
-      <Button variant="outlined">Voters</Button>
-      <Button variant="outlined">Editors</Button>
+    <TextField id="filled-basic" label="filter" variant="filled" />  &nbsp;    
+      <Button variant="contained" color="success">Reputation</Button>&nbsp;
+      <Button variant="contained" color="success">New user</Button>&nbsp;
+      <Button variant="contained" color="success">Voters</Button>&nbsp;
+      <Button variant="contained" color="success">Editors</Button>&nbsp;
     </div> 
 
     {userdata.map((row)=>( 
       <Box sx={{ flexGrow: 1 }} key={row.id}>
       <Grid container spacing={2}>
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <Item>            
           <Card sx={{ width:"500px",height:"100px" }}>
           <CardContent> 
@@ -92,7 +81,7 @@ function Users()
           {row.name}
           </Typography>
           <Typography  color="text.secondary">
-          {row.languageknown}
+          {row.tags}
           </Typography>
           </CardContent>
           </Card>

@@ -9,6 +9,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import jwt from "jsonwebtoken";
 
 const bull = (
   <Box
@@ -33,26 +34,26 @@ function Companies()
   const [companydata,setCompanydata]= useState([]);
 
     
-//   useEffect(()=>{
-//    async function getData()
-//    {
-//     const decodedtoken=jwt.decode(localStorage.getItem("token"));
-//     if(decodedtoken.exp * 1000 < Date.now())
-//     {
-//       navigate("/signin");
+  useEffect(()=>{
+   async function getData()
+   {
+    const decodedtoken=jwt.decode(localStorage.getItem("token"));
+    if(decodedtoken.exp * 1000 < Date.now())
+    {
+      navigate("/signin");
 
-//     }
-// else{
-//        const response= await axios.get("http://localhost:3001/company/get",{
-//          headers:{
-//            accesstoken : localStorage.getItem("token"),
-//          },
-//        });
-//        setCompanydata(response.data);    
-//    }
-//  }
-//    getData();
-// },[]);
+    }
+else{
+       const response= await axios.get("http://localhost:3001/company/get",{
+         headers:{
+           accesstoken : localStorage.getItem("token"),
+         },
+       });
+       setCompanydata(response.data);    
+   }
+ }
+   getData();
+},[]);
   
   return(
     <div >

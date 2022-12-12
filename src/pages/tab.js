@@ -24,7 +24,7 @@ import  Tags from "./tags";
 import Users from "./users";
 import Companies from "./companies";
 import stacklogo from "../images/stacklogo.png";
-
+import jwt from "jsonwebtoken";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

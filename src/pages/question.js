@@ -11,7 +11,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-
+import jwt from "jsonwebtoken";
 
 const bull = (
   <Box
@@ -33,42 +33,29 @@ function Question()
 {
   const navigate=useNavigate();
 
-  const [qusdata,setQusdata]= useState([
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-  ]);
+  const [qusdata,setQusdata]= useState([]);
 
     
-//   useEffect(()=>{
-//    async function getData()
-//    {
-//     const decodedtoken=jwt.decode(localStorage.getItem("token"));
-//     if(decodedtoken.exp * 1000 < Date.now())
-//     {
-//       navigate("/signin");
+  useEffect(()=>{
+   async function getData()
+   {
+    const decodedtoken=jwt.decode(localStorage.getItem("token"));
+    if(decodedtoken.exp * 1000 < Date.now())
+    {
+      navigate("/signin");
 
-//     }
-// else{
-//        const response= await axios.get("http://localhost:3001/question/get",{
-//          headers:{
-//            accesstoken : localStorage.getItem("token"),
-//          },
-//        });
-//        setUserdata(response.data);    
-//    }
-//  }
-//    getData();
-// },[]);
+    }
+else{
+       const response= await axios.get("http://localhost:3001/question/get",{
+         headers:{
+           accesstoken : localStorage.getItem("token"),
+         },
+       });
+       setUserdata(response.data);    
+   }
+ }
+   getData();
+},[]);
   
 
 
@@ -80,24 +67,22 @@ function Question()
       <h1>All Question</h1>
       <Button variant="contained" onClick={askqus}>Ask question</Button>
       <br/>
-      <span>11 questions</span>
+      <span>{qusdata.length} questions</span>
       <hr/>
       {qusdata.map((row)=>( 
        <Box sx={{ flexGrow: 1 }} key={row.id}>
        <Grid container spacing={2}>
-         <Grid item xs={8}>
+         <Grid item xs={12}>
            <Item>            
            <Card sx={{ width:"500px",height:"100px" }}>
            <CardContent> 
                     
            <Typography  component="div">
-           <img style={{width: 50,height: 50, alignContent:"center"}} src={row.image}/>
- 
-           {row.name}
+           {row.question}
            </Typography>
-           <Typography  color="text.secondary">
-           {row.languageknown}
-           </Typography>
+           {/* <Typography  color="text.secondary">
+           {row.language}
+           </Typography> */}
            </CardContent>
            </Card>
            </Item>
