@@ -30,20 +30,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Companies()
 {
-  const [companydata,setCompanydata]= useState([
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-    {
-      name:"a",
-      languageknown:"c,c++,java"
-    },
-  ]);
+  const [companydata,setCompanydata]= useState([]);
 
     
 //   useEffect(()=>{
@@ -84,7 +71,7 @@ function Companies()
       {companydata.map((row)=>( 
       <Box sx={{ flexGrow: 1 }} key={row.id}>
       <Grid container spacing={2}>
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <Item>            
           <Card sx={{ width:"500px",height:"100px" }}>
           <CardContent> 

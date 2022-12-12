@@ -4,7 +4,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-
+import axios from "axios";
+import { Formik} from "formik";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
@@ -18,6 +19,20 @@ const bull = (
   );
 
 function Askqus(){
+    const [userqusData,setUserqusData]=useState([]);
+
+    
+    // signup axios call
+    const handleSubmit=async(formdata, { resetForm })=>{
+    const response= await axios.post("http://localhost:3001/question/create",
+       
+        {
+             qus:formdata.qus,
+        });
+        setUserqusData([...userqusData,response.data]);
+        resetForm();
+    };
+
     return(
         <div>
             <h2>Ask a public question</h2>
@@ -47,13 +62,49 @@ function Askqus(){
         <Typography variant="body2">
         Be specific and imagine you’re asking a question to another person.
          </Typography>
-         <TextField
-         style={{width:"300px",height:"10px"}} 
-         lable="e.g. react function to split window"/>
-        &nbsp;
-         <Button variant="contained" lable="Next">Next</Button>
-      </CardContent>
+         <Formik
+       initialValues={{
+          qus:"",
+       }}
       
+       onSubmit={handleSubmit}
+     >
+         {({
+         values,
+         errors,
+         touched,
+         handleChange,
+         handleBlur,
+         handleSubmit,
+         handleReset,
+         isSubmitting,
+       }) =>(
+       
+       <Box
+       component="form"
+       sx={{
+         '& > :not(style)': { m: 1, width: '25ch' },
+       }}
+       noValidate
+       autoComplete="off"
+       onSubmit={handleSubmit}
+       >
+         {/* question */}
+       <TextField style={{width:"500px",height:"150px"}}
+       id="qus" 
+       lable="e.g. react function to split window"
+        name="qus"
+        type="text"  
+       value={values.qus}
+       variant="filled"             
+       onChange={handleChange}
+       onBlur={handleBlur}/><br/>
+        {/* <span style={{color:"green"}}>{touched.qus && errors.qus}</span><br/> */}    
+     <Button variant="contained" type="submit" disabled={isSubmitting} >Next</Button>
+       </Box>
+       )}
+       </Formik>
+      </CardContent>      
     </Card>
     </div>
 

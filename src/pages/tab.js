@@ -95,8 +95,8 @@ export default function VerticalTabs() {
 <AppBar position="static" style={{background:"orange"}}>
   <Toolbar>
   <img style={{width: 250,height: 50, alignContent:"center"}} src={stacklogo}/>
-  <Button variant="text">About</Button>&nbsp;
-  <Button variant="text">Product</Button>&nbsp;
+  <Button variant="contained" color="success">About</Button>&nbsp;
+  <Button variant="contained" color="success">Product</Button>&nbsp;
  
   
     {auth && (
