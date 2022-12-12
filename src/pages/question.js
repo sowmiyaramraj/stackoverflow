@@ -4,7 +4,14 @@ import "./pages.css";
 function Question()
 {
   return(
-    <div className="content"><h1>Question</h1></div>
+    <div>
+      <h1>All Question</h1>
+      <Button variant="contained">Ask question</Button>
+      <br/>
+      <span>11 questions</span>
+      <hr/>
+      
+    </div>
 
   );
 }
