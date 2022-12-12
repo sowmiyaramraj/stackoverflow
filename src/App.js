@@ -8,6 +8,7 @@ import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import VerticalTabs from "./pages/tab";
 import Home from "./pages/home";
 import Tags from "./pages/tags";
+import Askqus from "./pages/askqus";
 import { Buffer } from 'buffer';
 global.Buffer = Buffer;
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/home" element={<Home/>}/>
             <Route path="/companies" element={<Companies/>}/>
             <Route path="/tags" element={<Tags/>}/>
+            <Route path="/askqus" element={<Askqus/>}/>
 
             </Routes>
            </Router>

@@ -22,6 +22,9 @@ import Home from "./home";
 import Question from "./question";
 import  Tags from "./tags";
 import Users from "./users";
+import Companies from "./companies";
+import stacklogo from "../images/stacklogo.png";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -89,11 +92,12 @@ export default function VerticalTabs() {
     <div className="header">
     <Box sx={{ flexGrow: 1 }}>
 
-<AppBar position="static" style={{background:"rgb(129, 43, 129)"}}>
+<AppBar position="static" style={{background:"orange"}}>
   <Toolbar>
-
+  <img style={{width: 250,height: 50, alignContent:"center"}} src={stacklogo}/>
   <Button variant="text">About</Button>&nbsp;
   <Button variant="text">Product</Button>&nbsp;
+ 
   
     {auth && (
       <div>
@@ -138,7 +142,7 @@ export default function VerticalTabs() {
      
       <Tabs
         orientation="vertical"
-        textColor="secondary"
+        textColor="orange"
         indicatorColor="secondary"
         variant="scrollable"
         value={value}
@@ -146,7 +150,7 @@ export default function VerticalTabs() {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       > 
-        <Tab label="home" {...a11yProps(0)} />
+        <Tab label="companies" {...a11yProps(0)} />
         <Tab label="Question" {...a11yProps(1)} />
         <Tab label="Tags" {...a11yProps(2)} />
         <Tab label="Users" {...a11yProps(3)} />
@@ -154,7 +158,7 @@ export default function VerticalTabs() {
         </Tabs>
      
       <TabPanel value={value} index={0}>
-      <Home/>
+      <Companies/>
       </TabPanel>
       <TabPanel value={value} index={1}>
       <Question/>

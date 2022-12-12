@@ -76,22 +76,22 @@ function Home()
     <div>
     <Box sx={{ flexGrow: 1 }}>
 
-<AppBar position="static" style={{background:"rgb(129, 43, 129)"}}>
+<AppBar position="static" style={{background:"orange"}}>
   <Toolbar>
-  <img style={{width: 250,height: 50, alignContent:"center"}} src={stacklogo}/>
+  <img style={{width: 250,height: 50, alignContent:"center"}} src={stacklogo}/>&nbsp;
 
     <Typography variant="h6" component="div" sx={{   flexGrow: 1,width: 1000 }}>
-      <Button>About</Button>&nbsp;
-      <Button>Product</Button>&nbsp;
+      <Button variant="contained" color="success">About</Button>&nbsp;
+      <Button variant="contained" color="success">Product</Button>&nbsp;
+      <Button variant="contained" color="success" onClick={signup}>signup</Button>&nbsp;
+      <Button variant="contained" color="success" onClick={signin}>signin</Button>
       
     </Typography>
-    {auth && (
+   
       <div>
-        <Button onClick={signup}>signup</Button>
-      <Button onClick={signin}>signin</Button>
        
       </div>
-    )}
+ 
   </Toolbar>
 </AppBar>
 </Box>
@@ -103,7 +103,7 @@ function Home()
         <Grid item xs={6}>
           <Item>
             
-          <Card sx={{ minWidth: 275 }}>
+          <Card sx={{ background:"rgb(195, 218, 238)" }} background="rgb(195, 218, 238)">
       <CardContent>
         
         <Typography variant="h5" component="div">
@@ -112,7 +112,7 @@ function Home()
         </Typography>
         </CardContent>
       <CardActions>
-        <Button size="small">Join the community</Button>
+        <Button variant="contained" color="success" size="small">Join the community</Button>
       </CardActions>
     </Card>
           </Item>
@@ -120,7 +120,7 @@ function Home()
        
         <Grid item xs={6}>
           <Item>
-          <Card sx={{ minWidth: 275 }}>
+          <Card sx={{ background:"rgb(195, 218, 238)" }} background="rgb(195, 218, 238)">
       <CardContent>
         
         <Typography variant="h5" component="div">
@@ -129,7 +129,7 @@ function Home()
         
       </CardContent>
       <CardActions>
-        <Button size="small">Discover Teams</Button>
+        <Button variant="contained" color="success" size="small">Discover Teams</Button>
       </CardActions>
     </Card>
           </Item>

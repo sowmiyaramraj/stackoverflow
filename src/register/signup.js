@@ -15,7 +15,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import axios from "axios";
 import VerticalTabs from "../pages/tab"
-
+import { StackedBarChart } from "@mui/icons-material";
+import stack from "../images/stack.png";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -52,8 +53,7 @@ function Signup(){
     //      email: formdata.email,
     //      password: formdata.password,
     //      confirmpassword: formdata.confirmpassword,
-    //      gender: formdata.gender,
-    //      mobilenumber: formdata.mobilenumber,
+    //     tags:formdata.tags,
     //     });
     //     setUserStateData([...userStateData,response.data]);
         navigate("/tab");
@@ -64,14 +64,13 @@ const handlesubmit1=()=>{
   navigate("/Signin")
 }
     return(
-      <div>
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={0}>
-        <Grid item xs={4}>
-          <Item  padding="100px"> </Item>
-        </Grid>
-        <Grid item xs={8}>
-          <Item> 
+      <div style={{background:"grey"}}>
+      <Box sx={{background:"grey",flexGrow: 1 }}>
+      
+        <Grid  item xs={8}>
+          <Item>
+          <img style={{width: 250,height: 250, alignContent:"center"}} src={stack}/>&nbsp;
+ 
            <Formik
        initialValues={{
         firstname:"",
@@ -79,8 +78,7 @@ const handlesubmit1=()=>{
         email:"",
         password:"",
         confirmpassword:"",
-        mobilenumber:"",
-        gender:"",
+       tags:"",
        }}
        validate={(formdata)=>validateform(formdata)}
        onSubmit={handleSubmit}
@@ -155,30 +153,16 @@ const handlesubmit1=()=>{
        onBlur={handleBlur}/><br/>
         <span style={{color:"green"}}>{touched.confirmpassword && errors.confirmpassword}</span><br/>
        {/* Mobilenumber */}
-       <TextField id="Mobilenumber" 
-       label="Mobile number"
-        name="mobilenumber"
-        type="number"  
-       value={values.mobilenumber}
+       <TextField id="tags" 
+       label="Enter the field or tags you interested in"
+        name="tags"
+        type="text"  
+       value={values.tags}
        variant="filled"             
        onChange={handleChange}
        onBlur={handleBlur}/><br/>
-        <span style={{color:"green"}}>{touched.mobilenumber && errors.mobilenumber}</span><br/>
-       {/* gender */}
-       <FormControl>
-       <FormLabel id="demo-radio-buttons-group-label">Gender  </FormLabel>
-       <RadioGroup
-         aria-labelledby="demo-radio-buttons-group-label"
-         name="gender"
-         value={values.gender}
-         onChange={handleChange}
-         onBlur={handleBlur}
-       >
-         <FormControlLabel value="male" control={<Radio />} label="male" />
-         <FormControlLabel value="female" control={<Radio />} label="female" />
-         </RadioGroup>
-         <span style={{color:"green"}}>{touched.gender && errors.gender}</span><br/>
-     </FormControl><br/>
+        <span style={{color:"green"}}>{touched.tags && errors.tags}</span><br/>
+       
     
      <Button variant="contained" type="submit" disabled={isSubmitting} >Submit</Button>
        </Box>
@@ -190,7 +174,7 @@ const handlesubmit1=()=>{
        <Button variant="text" type="submit">Login</Button>
       </form></Item>
         </Grid>        
-      </Grid>
+     
     </Box>
     </div>
     );

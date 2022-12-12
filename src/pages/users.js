@@ -81,9 +81,9 @@ function Users()
     {userdata.map((row)=>( 
       <Box sx={{ flexGrow: 1 }} key={row.id}>
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={8}>
           <Item>            
-          <Card sx={{ width:"200px",height:"100px" }}>
+          <Card sx={{ width:"500px",height:"100px" }}>
           <CardContent> 
                    
           <Typography  component="div">
